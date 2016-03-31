@@ -85,6 +85,10 @@ function () {
                 for (var i = 0; i < list.length; ++i) {
                     var label = list[i];
                     var label_str = label.value.toFixed(maxFixedPoints) ;
+                    if(Math.abs(label.value) < 0.001) {
+                        label_str = label.value.toExponential(2);
+                    }
+
                     this._formatted.push({
                         value: label.value ,
                         text: label_str
